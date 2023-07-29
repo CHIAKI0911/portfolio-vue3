@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1 style="margin:15px;" class="border border-info">ToDoリスト</h1>
+        <form>
+            <label for="deadline" style="margin:10px;">期限</label>
+            <input type="text" id="deadline" style="margin:10px;"  v-model="deadline" v-bind="attrs" /><br/>
+            <label for=""todo style="margin: 10px;">やること</label>
+            <input type="text" id="todo" style="margin:10px;"  v-model="todo" v-bind="attrs" />
+            <input type="button" value="新規登録" style="margin: 10px;" class="btn btn-info" v-on:click="addTodo" />
+                </p>
+        </form>
+        
+        <table class="table">
+            <tr v-for="(todo,n) in list" v-bind="todo">
+                <td>期限 :{{ todo.deadline }} </td>
+                <td>やること : {{ todo.todo }}</td>
+                <td><button class="btn btn-warning" v-on:click="removeList(n)">削除</button></td>
+            </tr>
+        </table>
+           
+      
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@3.2.29/dist/vue.global.js"></script>
+      <script src="js/todo.js"></script>
+    </body>
+</html>
